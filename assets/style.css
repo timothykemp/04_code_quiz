@@ -1,0 +1,162 @@
+/* Main Elements */
+
+body {
+  padding-top: 5rem;
+  background-color: #272633;
+}
+
+h1 {
+    font-family: 'Roboto Slab', serif;
+    color: #c9d030;
+}
+
+h2 {
+    font-family: 'Roboto Slab', serif;
+    color: #50becf;
+}
+
+h3 {
+    font-family: 'Roboto Slab', serif;
+    color: #50becf;
+}
+
+h4 {
+    font-family: 'Roboto Slab', serif;
+    color: #50becf;
+}
+
+h5 {
+    font-family: 'Roboto Slab', serif;
+    color: #50becf;
+}
+
+h6 {
+    font-family: 'Roboto Slab', serif;
+    color: #50becf;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #f3f3f6;
+}
+
+
+/* Navigation Bar */
+
+.navbar {
+  background-color: #272633;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+  color: #c9d030;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover, 
+.navbar-dark .navbar-nav .nav-link:focus {
+  color: #646c7e;
+}
+
+.navbar-dark .navbar-toggler {
+  border-color: #f3f3f6;
+}
+
+.navbar-dark .navbar-toggler:hover {
+  border-color: #646c7e;
+}
+
+.navbar-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28243, 243, 246' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-dark .navbar-toggler-icon:hover {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28100, 108, 126' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+button:focus {
+    outline: none;
+}
+
+
+/* Quiz Section */
+
+.card {
+  border: none;
+}
+
+.card-header {
+  color: #50becf;
+  border: none;
+}
+
+.card-body {
+  color: #f3f3f6;
+  border: none;
+}
+
+.card-footer {
+  color: #edad3d;
+  border: none;
+}
+
+.lead {
+    font-weight: 400;
+    font-size: 17px;
+    color: #50becf;
+}
+
+.pageheader {
+    padding-top: 2rem;
+}
+
+
+/* Form */
+
+.form-group label {
+  color: #f3f3f6;
+  font-family: 'Roboto Slab', serif;
+}
+
+.form-control {
+  color: #646c7e;
+  font-family: 'Roboto', sans-serif;
+}
+
+.text-muted {
+  color: #b3b4b9!important;
+}
+
+.btn-primary {
+  color: #f3f3f6;
+  font-family: 'Roboto', sans-serif;
+  background-color: #edad3d;
+  border-color: #f3f3f6;
+}
+
+.btn-primary:hover {
+  color: #f3f3f6;
+  font-family: 'Roboto', sans-serif;
+  background-color: #c9d030;
+  border-color: #f3f3f6;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  color: #f3f3f6;
+  font-family: 'Roboto', sans-serif;
+  background-color: #c9d030;
+  border-color: #f3f3f6;
+  box-shadow: 0 0 0 0.2rem #c9d030;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+  color: #f3f3f6;
+  font-family: 'Roboto', sans-serif;
+  background-color: #c9d030;
+  border-color: #f3f3f6;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem #c9d030;
+}
