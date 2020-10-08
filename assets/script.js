@@ -1,4 +1,4 @@
-// Set the main to a variable
+// Set the body to a variable
 var body = document.body;
 
 // Create all necessary elements and variables for navbar
@@ -17,17 +17,20 @@ var mainEl = document.createElement("div");
 // Create progress bar div
 //var progressEl = document.querySelector("#progress");
 
+// Create all necessary elements and variables for quiz container
 var quizEl = document.createElement("div");
 var quizRow = document.createElement("div");
 var quizCol = document.createElement("div");
 var quizCard = document.createElement("div");
 
-// Create start button
+// Create all necessary elements and variables for start page
 var startEl = document.createElement("div");
 var startHeader = document.createElement("div");
 var startHeaderText = document.createElement("h1");
 var startBody = document.createElement("div");
+var startFooter = document.createElement("div");
 var startBodyText = document.createElement("p");
+var startButton = document.createElement("button");
 
 // Create 10 dynamic questions
 // Create 4 answer button variables
@@ -47,12 +50,16 @@ var startBodyText = document.createElement("p");
 timerCountEl.setAttribute("id", "timer");
 quizCard.setAttribute("id", "quiz");
 startEl.setAttribute("id", "start-card");
+startButton.setAttribute("id", "start-button");
 
 // Set the text content of relevant elements
 navLink.textContent = "View High Scores";
-timerEl.textContent = "Time: ";
+timerCountEl.textContent = 75;
+timerEl.textContent = "Time: " ;
 startHeaderText.textContent = "Coding Quiz Challenge";
 startBodyText.textContent = "Try to answer the following code-related questions within the time limit. But beware! For every answer you get wrong, you'll lose 10 seconds from the timer!"
+startButton.textContent = "Start Quiz!"
+
 
 // Create hyperlinks
 navLink.href = "./index.html";
@@ -77,6 +84,8 @@ startEl.appendChild(startHeader);
 startHeader.appendChild(startHeaderText);
 startEl.appendChild(startBody);
 startBody.appendChild(startBodyText);
+startEl.appendChild(startFooter);
+startFooter.appendChild(startButton);
 
 
 // Style all of our elements
@@ -91,9 +100,25 @@ quizCard.setAttribute("class", "card bg-transparent");
 
 startHeader.setAttribute("class", "card-header bg-transparent");
 startBody.setAttribute("class", "card-body");
+startFooter.setAttribute("class", "card-footer bg-transparent text-center");
+startButton.setAttribute("class", "btn btn-primary text-center");
+
+
+
+
+
+
+
+
+// Start Quiz
+startButton.addEventListener("click", function () {
+  startTimer();
+});
+
 
 // Timer countdown
-function setTime() {
+function startTimer() {
+
     var timerInterval = setInterval(function () {
         secondsLeft--;
         timerCountEl.textContent = secondsLeft;
@@ -105,4 +130,3 @@ function setTime() {
     }, 1000);
 }
 
-setTime();
