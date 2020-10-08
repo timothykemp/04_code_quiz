@@ -85,19 +85,24 @@ button:focus {
 }
 
 .card-header {
-  color: #50becf;
   border: none;
+  text-align: center;
 }
 
 .card-body {
-  color: #f3f3f6;
   border: none;
+  color: #f3f3f6;
+  text-align: center;
 }
 
 .card-footer {
-  color: #edad3d;
   border: none;
+  color: #edad3d;
 }
+
+
+
+
 
 .lead {
     font-weight: 400;
