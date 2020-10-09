@@ -42,7 +42,7 @@ p {
 }
 
 
-/* Nav Link */
+/* Navbar */
 a {
   color: #50becf;
 }
@@ -56,6 +56,18 @@ a:hover,
 a:focus {
   color: #f3f3f6;
   text-decoration: none;
+}
+
+.timer-format {
+  color: #f3f3f6;
+}
+
+.ten-left {
+  color: #c9d030;
+}
+
+.five-left {
+  color: #edad3d;
 }
 
 

@@ -55,7 +55,7 @@ startButton.setAttribute("id", "start-button");
 // Set the text content of relevant elements
 navLink.textContent = "View High Scores";
 timerCountEl.textContent = 75;
-timerEl.textContent = "Time: " ;
+timerEl.textContent = "Time Remaining: " ;
 startHeaderText.textContent = "Coding Quiz Challenge";
 startBodyText.textContent = "Try to answer the following code-related questions within the time limit. But beware! For every answer you get wrong, you'll lose 10 seconds from the timer!"
 startButton.textContent = "Start Quiz!"
@@ -90,6 +90,7 @@ startFooter.appendChild(startButton);
 
 // Style all of our elements
 navEl.setAttribute("class", "navbar navbar-dark fixed-top");
+timerCountEl.setAttribute("class", "timer-format");
 
 mainEl.setAttribute("class", "container-fluid");
 
@@ -110,7 +111,7 @@ startButton.setAttribute("class", "btn btn-primary text-center");
 
 
 
-// Start Quiz
+// Click button to start quiz
 startButton.addEventListener("click", function () {
   startTimer();
 });
@@ -122,6 +123,12 @@ function startTimer() {
     var timerInterval = setInterval(function () {
         secondsLeft--;
         timerCountEl.textContent = secondsLeft;
+
+        if (secondsLeft > 5 && secondsLeft <= 10) {
+            timerCountEl.setAttribute("class", "ten-left");
+        } else if (secondsLeft <= 5) {
+            timerCountEl.setAttribute("class", "five-left");
+        }
 
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
