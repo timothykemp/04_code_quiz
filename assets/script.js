@@ -40,19 +40,14 @@ var questionCard = document.createElement("div");
 var questionHeader = document.createElement("div");
 var questionText = document.createElement("h3");
 var questionBody = document.createElement("div");
+var answerButtons = document.createElement("div");
 var answerButton1 = document.createElement("button");
 var answerButton2 = document.createElement("button");
 var answerButton3 = document.createElement("button");
 var answerButton4 = document.createElement("button");
 var questionFooter = document.createElement("div");
 var questionFooterText = document.createElement("h5");
-var questionObject = {
-    questionText: "",
-    answerButton1: "",
-    answerButton2: "",
-    answerButton3: "",
-    answerButton4: "",
-}
+
 
 // Create final element
 // Pull back final score from local storage
@@ -73,13 +68,13 @@ startButton.setAttribute("id", "start-button");
 
 questionCard.setAttribute("id", "question-card");
 questionText.setAttribute("id", "question-text");
+answerButtons.setAttribute("id", "buttons");
 answerButton1.setAttribute("id", "answer-button-1");
 answerButton2.setAttribute("id", "answer-button-2");
 answerButton3.setAttribute("id", "answer-button-3");
 answerButton4.setAttribute("id", "answer-button-4");
 questionFooter.setAttribute("id", "question-footer");
 questionFooterText.setAttribute("id", "question-footer-text");
-
 
 // Style all of our elements
 navEl.setAttribute("class", "navbar navbar-dark fixed-top");
@@ -101,6 +96,7 @@ questionHeader.setAttribute("class", "card-header bg-transparent");
 questionBody.setAttribute("class", "card-body");
 questionFooter.setAttribute("class", "card-footer bg-transparent");
 questionFooter.setAttribute("style", "display: none");
+answerButtons.setAttribute("style", "display: contents");
 answerButton1.setAttribute("class", "btn btn-primary");
 answerButton2.setAttribute("class", "btn btn-primary");
 answerButton3.setAttribute("class", "btn btn-primary");
@@ -134,6 +130,7 @@ function buildMainQuiz() {
     quizCol.appendChild(quizCard);
 }
 
+
 // Build start card
 function buildStartCard() {
 
@@ -153,37 +150,101 @@ function buildStartCard() {
 }
 
 // Build question card
-function buildQuestions() {
-    questionText.textContent = "What is 2+2?";
-    answerButton1.textContent = 6;
-    answerButton2.textContent = 4;
-    answerButton3.textContent = 7;
-    answerButton4.textContent = 42;
-    questionFooterText.textContent = "Correct!";
+function buildQuiz() {
 
     quizCard.appendChild(questionCard);
     questionCard.appendChild(questionHeader);
     questionHeader.appendChild(questionText);
     questionCard.appendChild(questionBody);
-    questionBody.appendChild(answerButton1);
-    questionBody.appendChild(answerButton2);
-    questionBody.appendChild(answerButton3);
-    questionBody.appendChild(answerButton4);
+    questionBody.appendChild(answerButtons);
+    answerButtons.appendChild(answerButton1);
+    answerButtons.appendChild(answerButton2);
+    answerButtons.appendChild(answerButton3);
+    answerButtons.appendChild(answerButton4);
     questionCard.appendChild(questionFooter);
     questionFooter.appendChild(questionFooterText);
 
     quizCard.replaceChild(questionCard, startCard);
+
+
+
+
+
+    var currentQuestion = 0;
+    var userScore = 0;
+
+    askQuestion(currentQuestion);
+
+    function askQuestion() {
+
+        x = currentQuestion;
+        i = 0;
+
+        var questions = [
+            ["What is 2+2?", 6, 4, 7, 42, "answer-button-2"],
+            ["What is 7+3?", 10, 342, 0, -14, "answer-button-1"],
+        ];
+
+        console.log("curr quest: " + currentQuestion);
+
+        questionText.textContent = questions[x][i];
+        answerButton1.textContent = questions[x][i + 1];
+        answerButton2.textContent = questions[x][i + 2];
+        answerButton3.textContent = questions[x][i + 3];
+        answerButton4.textContent = questions[x][i + 4];
+
+        answerButtons.addEventListener("click", function (event) {
+            event.preventDefault;
+            console.log(event.target.id);
+
+            if (event.target.id === questions[x][i + 5]) {
+                questionFooterText.textContent = "Correct!";
+                toggleFooter();
+                userScore = userScore + 10;
+                console.log(userScore);
+                currentQuestion = i + 1;
+                setTimeout(() => {
+                    toggleFooter();
+                    askQuestion();
+                }, 1000);
+            } else {
+                questionFooterText.textContent = "Wrong!";
+                toggleFooter();
+                console.log(userScore);
+                currentQuestion = i + 1;
+                setTimeout(() => {
+                    toggleFooter();
+                    askQuestion();
+                }, 1000);
+            }
+
+            // Toggle question card footer show/hide
+            function toggleFooter() {
+                var footerVisibility = document.getElementById("question-footer");
+                if (footerVisibility.style.display === "none") {
+                    footerVisibility.style.display = "block";
+                } else {
+                    footerVisibility.style.display = "none";
+                }
+            }
+
+        });
+
+
+
+
+
+
+    }
+
+
+
+
+
 }
 
-// Toggle question card footer show/hide
-function toggleFooter() {
-    var footerVisibility = document.getElementById("question-footer");
-    if (footerVisibility.style.display === "none") {
-        footerVisibility.style.display = "block";
-    } else {
-        footerVisibility.style.display = "none";
-    }
-}
+
+
 
 
 
@@ -206,13 +267,10 @@ var secondsLeft = 75;
 startButton.addEventListener("click", function () {
 
     startTimer();
-    buildQuestions();
+    buildQuiz();
 });
 
-// Dynamic quiz logic
-answerButton2.addEventListener("click", function () {
-    toggleFooter();
-});
+
 
 // Timer countdown
 function startTimer() {
