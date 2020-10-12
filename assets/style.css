@@ -80,13 +80,11 @@ a:focus {
 
 .card-header {
   border: none;
-  text-align: center;
 }
 
 .card-body {
   border: none;
   color: #f3f3f6;
-  text-align: center;
 }
 
 .card-footer {
@@ -94,11 +92,24 @@ a:focus {
   color: #edad3d;
 }
 
+.start-header {
+  border: none;
+  text-align: center;
+}
+
+.start-body {
+  border: none;
+  color: #f3f3f6;
+  text-align: center;
+}
+
 .btn-primary {
   color: #f3f3f6;
   font-family: 'Roboto', sans-serif;
   background-color: #edad3d;
   border-color: #f3f3f6;
+  display: block;
+  margin-bottom: .5rem;
 }
 
 .btn-primary:hover {

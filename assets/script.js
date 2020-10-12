@@ -30,6 +30,7 @@ var startFooter = document.createElement("div");
 var startButton = document.createElement("button");
 
 // Create 10 dynamic questions
+// Track current question
 // Create 4 answer button variables
 // Create correct/wrong show/hide
 // Create variable to track score in local storage
@@ -90,36 +91,23 @@ quizRow.setAttribute("class", "row");
 quizCol.setAttribute("class", "col-8 mx-auto");
 quizCard.setAttribute("class", "card bg-transparent");
 
-startHeader.setAttribute("class", "card-header bg-transparent");
-startBody.setAttribute("class", "card-body");
+startHeader.setAttribute("class", "start-header bg-transparent");
+startBody.setAttribute("class", "start-body");
 startFooter.setAttribute("class", "card-footer bg-transparent text-center");
 startButton.setAttribute("class", "btn btn-primary text-center");
+startButton.setAttribute("style", "display: inline");
 
 questionHeader.setAttribute("class", "card-header bg-transparent");
 questionBody.setAttribute("class", "card-body");
-questionFooter.setAttribute("class", "card-footer bg-transparent text-center");
+questionFooter.setAttribute("class", "card-footer bg-transparent");
 questionFooter.setAttribute("style", "display: none");
 answerButton1.setAttribute("class", "btn btn-primary");
 answerButton2.setAttribute("class", "btn btn-primary");
 answerButton3.setAttribute("class", "btn btn-primary");
 answerButton4.setAttribute("class", "btn btn-primary");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Create hyperlinks
 navLink.href = "./index.html";
-
 
 // Build navbar
 function buildNavbar() {
